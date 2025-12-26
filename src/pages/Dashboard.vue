@@ -20,10 +20,10 @@
             leave-to-class="opacity-0 -translate-x-2"
           >
             <div v-if="!isSidebarCollapsed" class="flex items-center justify-center flex-1">
-              <img :src="logoBei" alt="BULLION ecosystem Logo" class="h-12 w-auto brightness-0" />
+              <img src="@assets/logo/logo-bei.svg" alt="BULLION ecosystem Logo" class="h-12 w-auto brightness-0" />
             </div>
             <div v-else class="flex justify-center w-full">
-              <img :src="logoBei" alt="BULLION ecosystem Logo" class="h-10 w-auto brightness-0" />
+              <img src="@assets/logo/logo-bei.svg" alt="BULLION ecosystem Logo" class="h-10 w-auto brightness-0" />
             </div>
           </Transition>
 
@@ -143,7 +143,7 @@
       ]"
     >
       <div class="md:hidden fixed top-0 left-0 right-0 bg-white shadow-sm border-b border-gray-200 z-20 px-4 py-3 flex items-center justify-between">
-        <img :src="logoBei" alt="BULLION ecosystem Logo" class="h-8 w-auto brightness-0" />
+        <img src="@assets/logo/logo-bei.svg" alt="BULLION ecosystem Logo" class="h-8 w-auto brightness-0" />
         <button
           @click="showMobileMenu = !showMobileMenu"
           class="p-2 rounded-lg text-gray-600 hover:bg-gray-100"
@@ -170,7 +170,7 @@
             @click.stop
           >
             <div class="p-4 flex items-center justify-between border-b">
-              <img :src="logoBei" alt="BULLION ecosystem Logo" class="h-10 w-auto brightness-0" />
+              <img src="@assets/logo/logo-bei.svg" alt="BULLION ecosystem Logo" class="h-10 w-auto brightness-0" />
               <button
                 @click="showMobileMenu = false"
                 class="p-2 rounded-lg text-gray-600 hover:bg-gray-100"
@@ -400,7 +400,6 @@ import { userService } from '@/services/userService'
 import { formatDate } from '@/utils/dateFormatter'
 import ViewUserModal from '@/components/ViewUserModal.vue'
 import EditUserModal from '@/components/EditUserModal.vue'
-import logoBei from '@assets/logo/logo-bei.svg'
 
 const router = useRouter()
 const toast = useToast()

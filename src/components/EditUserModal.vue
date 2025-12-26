@@ -209,14 +209,14 @@
               <div class="w-24 h-24 rounded-full border-2 border-gray-200 bg-gray-50 flex items-center justify-center overflow-hidden p-4">
                 <img
                   v-if="form.gender === 'Laki-laki' || (props.user?.gender === 'male' && !form.gender)"
-                  :src="maleIcon"
+                  src="@assets/icon/male.svg"
                   alt="Male"
                   class="w-full h-full object-contain"
                   style="max-width: 100%; max-height: 100%;"
                 />
                 <img
                   v-else-if="form.gender === 'Perempuan' || (props.user?.gender === 'female' && !form.gender)"
-                  :src="femaleIcon"
+                  src="@assets/icon/female.svg"
                   alt="Female"
                   class="w-full h-full object-contain"
                   style="max-width: 100%; max-height: 100%;"
@@ -261,8 +261,6 @@ import { Transition } from 'vue'
 import { useToast } from 'vue-toastification'
 import { userService } from '@/services/userService'
 import { formatDateForInput } from '@/utils/dateFormatter'
-import maleIcon from '@assets/icon/male.svg'
-import femaleIcon from '@assets/icon/female.svg'
 
 const props = defineProps({
   user: {
