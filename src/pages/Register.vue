@@ -423,13 +423,15 @@ const handleRegister = async () => {
     
     if (response.token || response.success) {
       toast.success('Registrasi berhasil!')
-      router.push('/login')
+      setTimeout(() => {
+        router.push('/login')
+      }, 1500)
     } else {
       toast.error(response.message || 'Registrasi gagal')
+      loading.value = false
     }
   } catch (error) {
     toast.error(error.response?.data?.message || 'Terjadi kesalahan saat registrasi')
-  } finally {
     loading.value = false
   }
 }
