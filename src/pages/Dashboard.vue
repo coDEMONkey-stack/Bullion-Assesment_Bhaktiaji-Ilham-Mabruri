@@ -512,9 +512,23 @@ const fetchUsers = async (useCache = true) => {
     })
     
     userData.sort((a, b) => {
-      const dateA = new Date(a.created_at || a.date_of_birth || a.date || 0)
-      const dateB = new Date(b.created_at || b.date_of_birth || b.date || 0)
-      return dateB.getTime() - dateA.getTime()
+      const getDate = (user) => {
+        if (user.created_at) {
+          return new Date(user.created_at).getTime()
+        }
+        if (user.date) {
+          return new Date(user.date).getTime()
+        }
+        if (user.date_of_birth) {
+          return new Date(user.date_of_birth).getTime()
+        }
+        return 0
+      }
+      
+      const dateA = getDate(a)
+      const dateB = getDate(b)
+      
+      return dateB - dateA
     })
     
     users.value = userData
