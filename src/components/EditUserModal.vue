@@ -462,24 +462,30 @@ const handleSubmit = async () => {
                        (response.data && !response.iserror)
       
       if (isSuccess) {
-        toast.success(response.message || response.data?.message || 'User berhasil diperbarui!')
-        emit('updated')
-        handleClose()
+        loading.value = false
+        setTimeout(() => {
+          toast.success(response.message || response.data?.message || 'User berhasil diperbarui!')
+          emit('updated')
+          handleClose()
+        }, 100)
       } else {
+        loading.value = false
         toast.error(response.message || response.err_message || response.data?.message || 'Gagal memperbarui user')
       }
     } else {
-      toast.success('User berhasil diperbarui!')
-      emit('updated')
-      handleClose()
+      loading.value = false
+      setTimeout(() => {
+        toast.success('User berhasil diperbarui!')
+        emit('updated')
+        handleClose()
+      }, 100)
     }
   } catch (error) {
     console.error('Update user error:', error)
+    loading.value = false
     const errorData = error.response?.data || error
     const errorMessage = errorData?.err_message || errorData?.err_message_en || errorData?.message || error.message || 'Gagal memperbarui user'
     toast.error(errorMessage)
-  } finally {
-    loading.value = false
   }
 }
 </script>
