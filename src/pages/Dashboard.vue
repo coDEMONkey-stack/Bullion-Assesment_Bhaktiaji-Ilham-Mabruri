@@ -640,14 +640,21 @@ const closeEditModal = () => {
   selectedUser.value = null
 }
 
-const handleUserUpdated = () => {
+const handleUserUpdated = async () => {
   const userId = selectedUser.value?._id || selectedUser.value?.id || selectedUser.value?.account_id
   if (userId) {
     userDetailCache.delete(userId)
     getUserNameCache.delete(userId)
   }
-  fetchUsers(false)
   closeEditModal()
+  loading.value = true
+  try {
+    await fetchUsers(false)
+    loading.value = false
+    toast.success('User berhasil diperbarui!')
+  } catch (error) {
+    loading.value = false
+  }
 }
 
 const handleDeleteUser = async (user) => {
