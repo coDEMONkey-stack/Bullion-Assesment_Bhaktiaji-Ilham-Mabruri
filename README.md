@@ -2,6 +2,8 @@
 
 Admin dashboard untuk manage user menggunakan Vue 3 dan Tailwind CSS.
 
+**Live Demo:** https://bullion-assesment-bhaktiaji-ilham-m.vercel.app/
+
 ## Tech Stack
 
 - Vue.js 3 (Composition API)
