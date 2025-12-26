@@ -41,13 +41,13 @@
           <div class="flex justify-center">
             <img
               v-if="user.gender === 'male'"
-              src="@assets/icon/male.svg"
+              :src="maleIcon"
               alt="Male"
               class="w-32 h-32 rounded-full object-contain p-4 border-4 border-gray-200 bg-gray-50"
             />
             <img
               v-else-if="user.gender === 'female'"
-              src="@assets/icon/female.svg"
+              :src="femaleIcon"
               alt="Female"
               class="w-32 h-32 rounded-full object-contain p-4 border-4 border-gray-200 bg-gray-50"
             />
@@ -117,6 +117,8 @@
 import { computed, ref, watch } from 'vue'
 import { Transition } from 'vue'
 import { formatDateLong } from '@/utils/dateFormatter'
+import maleIcon from '@assets/icon/male.svg'
+import femaleIcon from '@assets/icon/female.svg'
 
 const props = defineProps({
   user: {

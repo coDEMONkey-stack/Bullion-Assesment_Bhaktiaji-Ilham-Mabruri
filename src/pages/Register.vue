@@ -3,7 +3,7 @@
     <div class="hidden md:flex md:w-1/3 fixed left-0 top-0 bottom-0 overflow-hidden" style="background-color: #2E74B2;">
       
       <img 
-        src="@assets/logo/particle-logomark.png" 
+        :src="particleLogo" 
         alt="Particle Background"
         class="absolute top-0 left-0 w-80 h-80 opacity-30 object-contain pointer-events-none"
       />
@@ -35,7 +35,7 @@
       <div class="relative z-10 p-8 h-full flex flex-col">
         <div class="relative">
           <img 
-            src="@assets/logo/logo-bei.svg" 
+            :src="logoBei" 
             alt="Bullion Ecosystem Logo" 
             class="h-12 mb-8 w-auto relative z-10"
             onerror="this.style.display='none'"
@@ -279,6 +279,8 @@ import { Transition } from 'vue'
 import { useRouter } from 'vue-router'
 import { useToast } from 'vue-toastification'
 import { authService } from '@/services/authService'
+import particleLogo from '@assets/logo/particle-logomark.png'
+import logoBei from '@assets/logo/logo-bei.svg'
 
 const router = useRouter()
 const toast = useToast()
