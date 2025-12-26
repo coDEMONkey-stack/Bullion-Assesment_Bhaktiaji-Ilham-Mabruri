@@ -421,18 +421,17 @@ const handleRegister = async () => {
   try {
     const response = await authService.register(form)
     
-    if (response.token || response.success) {
-      toast.success('Registrasi berhasil!')
-      setTimeout(() => {
-        router.push('/login')
-      }, 1500)
-    } else {
-      toast.error(response.message || 'Registrasi gagal')
+    if (response.token || response.success || (response && !response.iserror)) {
       loading.value = false
+      toast.success('Registrasi berhasil!')
+      router.push('/login')
+    } else {
+      loading.value = false
+      toast.error(response.message || 'Registrasi gagal')
     }
   } catch (error) {
-    toast.error(error.response?.data?.message || 'Terjadi kesalahan saat registrasi')
     loading.value = false
+    toast.error(error.response?.data?.message || 'Terjadi kesalahan saat registrasi')
   }
 }
 </script>
